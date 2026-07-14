@@ -1,5 +1,7 @@
-# Ignore contents of figures/ and results/, but keep the folders
-figures/**
-!figures/.gitkeep
-results/**
-!results/.gitkeep
+# Ignore files inside figures/ and results/, but keep the folders
+**/figures/**
+!**/figures/
+!**/figures/.gitkeep
+**/results/**
+!**/results/
+!**/results/.gitkeep
