@@ -1,0 +1,19 @@
+# Private data
+data_private/
+
+# Large model traces (provide separately or re-run 01_model_estimation.ipynb)
+*.nc
+
+# Smoke-test outputs from 01_model_estimation.ipynb (TEST_RUN=True)
+models/**/_test_runs/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+Thumbs.db

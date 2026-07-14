@@ -1,0 +1,15 @@
+numpy>=1.23
+pandas>=1.5
+scipy>=1.10
+pyyaml>=6.0
+tqdm>=4.65
+matplotlib>=3.7
+seaborn>=0.12
+brainspace>=0.1.10
+statsmodels>=0.14
+nibabel>=5.0
+nilearn>=0.10
+pybids>=0.16
+nbconvert>=7.0
+jupyter>=1.0
+glhmm>=0.1.0

@@ -1,0 +1,21 @@
+data_mode: example
+n_states: 3
+n_timepoints: 120
+n_subjects: 3
+method: merged_all_statistical
+use_gamma: true
+min_eff_n: 5
+min_hard_n: 5
+gradient:
+  n_components: 10
+  approach: dm
+  kernel: normalized_angle
+  alignment: procrustes
+  sparsity_percentile: 10
+  use_parallel: false
+paths:
+  example_root: example_data
+  study_data_root: data
+  study_mask: ../mask/merged_all_statistical_masks.nii.gz
+  hmm_model_template: data/hmm_models/trained_hmm_1000parcels_{k}states_{method}.pkl
+  output_root: results

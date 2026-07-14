@@ -1,0 +1,19 @@
+# Paths are resolved relative to brain_activation/ (not the notebook cwd).
+paths:
+  first_level_derivatives: "../../../BayesianNew/derivatives/first_level"
+  brain_mask: "../../../BayesianNew/mask/gray_mask.nii"
+
+analysis:
+  # Folder name under first_level_derivatives containing subject beta maps.
+  nii_str: "full_factorial"
+  # Full factorial second-level model (all trial-type factors crossed).
+
+statistics:
+  alpha: 0.05
+  cluster_extent_voxels: 20
+  height_control_main_figure: "bonferroni"
+  smoothing_fwhm_mm: null
+
+compute:
+  n_jobs_glm: -1
+  n_jobs_contrasts: 4

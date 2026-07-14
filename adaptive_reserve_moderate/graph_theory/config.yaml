@@ -1,0 +1,33 @@
+# Formal analysis config — edit paths and parameters for your study data.
+# Usage: default for notebooks (GRAPH_THEORY_CONFIG=config.yaml or omit).
+
+use_example_data: false
+
+paths:
+  project_root: ".."
+  data_dir: "data"
+  hmm_models_dir: "hmm_models"
+  roi_mask: "mask/merged_all_statistical_masks.nii.gz"
+  results_dir: "results"
+  # Leave null to use nilearn's Schaefer2018 download cache.
+  schaefer_dir: null
+
+analysis:
+  K: 3
+  method: merged_all_statistical
+  n_timepoints: 1615
+  n_subjects: 43
+  use_gamma: true
+  min_eff_n: 5
+  min_hard_n: 5
+
+graph_theory:
+  sparsity_thresholds: [0.1, 0.15, 0.2, 0.25, 0.3]
+  lesion_lambdas: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  target_network: SalVentAttn
+  n_null_replicates: 100
+  null_seed: 42
+  consensus_runs: 100
+  consensus_threshold: 0.5
+  use_parallel: true
+  n_jobs: null

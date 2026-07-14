@@ -1,0 +1,14 @@
+{
+ "n_participants": 43,
+ "n_trials": 5160,
+ "columns": [
+ "subject",
+ "subj_idx",
+ "transition",
+ "prob",
+ "long_short",
+ "acc",
+ "rt_ms"
+ ],
+ "note": "original_subject IDs are NOT included in hddm_analysis/data/"
+}

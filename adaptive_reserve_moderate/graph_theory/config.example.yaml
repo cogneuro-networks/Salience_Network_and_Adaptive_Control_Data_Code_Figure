@@ -1,0 +1,33 @@
+# Example pipeline config (anonymized example_data/ only).
+# Do not use outputs for scientific inference.
+# Usage: set GRAPH_THEORY_CONFIG=config.example.yaml, or run notebooks/run_example_pipeline.ipynb.
+
+use_example_data: true
+
+paths:
+  project_root: ".."
+  data_dir: "example_data"
+  hmm_models_dir: "example_data"
+  roi_mask: "example_data"
+  results_dir: "results/example"
+  schaefer_dir: null
+
+analysis:
+  K: 3
+  method: example
+  n_timepoints: 120
+  n_subjects: 3
+  use_gamma: true
+  min_eff_n: 5
+  min_hard_n: 5
+
+graph_theory:
+  sparsity_thresholds: [0.1, 0.2, 0.3]
+  lesion_lambdas: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  target_network: SalVentAttn
+  n_null_replicates: 5
+  null_seed: 42
+  consensus_runs: 20
+  consensus_threshold: 0.5
+  use_parallel: false
+  n_jobs: 1

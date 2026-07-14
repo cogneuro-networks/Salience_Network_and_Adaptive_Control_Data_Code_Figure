@@ -1,0 +1,1 @@
+done=30/30 (100.0%) | mode=parallel | tag=va_vat | out=models/transition_prob_duration_10000samples/parameter_recovery_va_vat | rows=270

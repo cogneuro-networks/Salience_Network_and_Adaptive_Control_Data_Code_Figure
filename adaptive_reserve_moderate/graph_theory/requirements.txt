@@ -1,0 +1,16 @@
+numpy>=1.23
+pandas>=1.5
+scipy>=1.9
+matplotlib>=3.6
+seaborn>=0.12
+nibabel>=4.0
+nilearn>=0.10
+networkx>=3.0
+python-louvain>=0.16
+pybids>=0.15
+tqdm>=4.64
+PyYAML>=6.0
+statsmodels>=0.14
+nbconvert>=7.0
+jupyter>=1.0
+# glhmm: install from the project repository referenced in README.md

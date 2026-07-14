@@ -1,0 +1,2 @@
+model,analysis,n_subjects,pearson_r,pearson_p,note
+hddm_va_vat,delta_v_delta_a_short_minus_long,43,-0.25416882154216125,0.10002773652342956,"Exploratory Pearson correlation of posterior-mean individual contrasts (Short − Long), averaged over 2×2 (prob × transition) cells."

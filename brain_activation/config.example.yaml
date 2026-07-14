@@ -1,0 +1,20 @@
+# Example pipeline — paths relative to brain_activation/
+pipeline:
+  example_mode: true
+
+paths:
+  first_level_derivatives: "example_data/first_level"
+  brain_mask: "example_data/gray_mask.nii"
+
+analysis:
+  nii_str: "full_factorial"
+
+statistics:
+  alpha: 0.05
+  cluster_extent_voxels: 1
+  height_control_main_figure: "bonferroni"
+  smoothing_fwhm_mm: null
+
+compute:
+  n_jobs_glm: 1
+  n_jobs_contrasts: 1

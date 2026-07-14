@@ -1,0 +1,27 @@
+# Python dependencies
+# Pin versions to match your analysis environment for reproducibility.
+
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+matplotlib>=3.7
+arviz>=0.16
+statsmodels>=0.14
+joblib>=1.3
+
+# Notebook runner (run_example_pipeline.ipynb) and batch execution via nbconvert.
+nbformat>=5.9
+nbconvert>=7.0
+ipykernel>=6.0
+
+# HDDM is only required for notebooks 01 and 03 (model fitting / recovery).
+# Notebook 00 uses a local flip_errors() helper and does NOT import hddm.
+# HDDM depends on PyMC 2.3.8 (not PyMC3) and Python 3.7–3.8; it will NOT install on Python 3.12.
+# Multi-chain parallel sampling: patch kabuki once after installing HDDM (see scripts/patch_kabuki_multichain.py).
+# Then notebooks can call model.sample(..., chains=4, parallel=True) with one CPU core per chain.
+# Recommended lab env (Windows, after installing Miniconda):
+# conda create -n hddm python=3.8 -y
+# conda activate hddm
+# pip install "numpy<1.23" "cython<1.0" pymc==2.3.8
+# pip install hddm==0.9.8 joblib
+# python hddm_analysis/scripts/patch_kabuki_multichain.py

@@ -1,0 +1,11 @@
+# Raw / identifiable data (not for public repository)
+merged.txt
+participants.tsv
+
+# Local development
+.Rhistory
+.RData
+.Rproj.user/
+
+# Optional: ignore regenerated outputs (remove if you want to track figures)
+# output/

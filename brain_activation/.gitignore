@@ -1,0 +1,6 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Nilearn/joblib cache (recreated by notebooks on first run)
+results/cachedir/
