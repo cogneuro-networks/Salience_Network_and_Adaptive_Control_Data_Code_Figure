@@ -46,27 +46,16 @@ Or:
 Rscript notebooks/behavioral_flexibility_stability_analysis.R
 ```
 
-## Expected outputs
-
-| File | Description |
-|------|-------------|
-| `figures/main_figure_2x2.pdf` | Main 2×2 composite figure |
-| `figures/main_figure_2x2.png` | PNG (500 dpi) |
-| `figures/main_figure_2x2.eps` | EPS vector |
-| `figures/main_figure_2x2.svg` | SVG vector |
-| `results/sessionInfo.txt` | R session and package versions |
 
 ## Analysis summary
 
 1. **Accuracy:** 3-way repeated-measures ANOVA (`transition × long_short × prob`) via `afex::aov_ez`.
 2. **RT transition cost:** difference score `rt_diff` with the rules in `data/data_dictionary.md`; same ANOVA structure.
-3. **Figure:** Panel A raincloud + half-density; Panel B accuracy by flux; Panels C/D RT spaghetti with 95% ribbons. Panel A jitter uses `set.seed(84721)`.
+3. **Figure:** Panel A raincloud + half-density; Panel B accuracy by flux; Panels C/D RT spaghetti with 95% ribbons. 
 
 Contrasts for all within-subject factors: sum-to-zero (`contr.sum(2)`).
 
-## Data availability
 
-Participant IDs follow the repository-wide convention (`sub-001` … `sub-043`). See [`../README.md#participant-ids`](../README.md#participant-ids).
 
 ## License
 

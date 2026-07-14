@@ -1,3 +1,5 @@
-# Generated outputs - keep locally, do not track
-figures/
-results/
+# Ignore contents of figures/ and results/, but keep the folders
+figures/**
+!figures/.gitkeep
+results/**
+!results/.gitkeep
