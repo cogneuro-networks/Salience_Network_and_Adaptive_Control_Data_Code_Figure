@@ -1,0 +1,4 @@
+subject,start_row,end_row,n_timepoints
+sub-01,0,120,120
+sub-02,120,240,120
+sub-03,240,360,120

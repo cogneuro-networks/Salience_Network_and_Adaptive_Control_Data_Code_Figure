@@ -1,0 +1,23 @@
+# Formal analysis config — edit paths and parameters for your study data.
+# Usage: default for notebooks (BRAIN_STATES_CONFIG=config.yaml or omit).
+
+use_example_data: false
+
+paths:
+  data_dir: "data"
+  hmm_models_dir: "hmm_models"
+  results_dir: "results"
+
+analysis:
+  n_parcels: 1000
+  K: 3
+  # Must match filenames: all_schaefer_parcel{n_parcels}_{method}.csv
+  # and trained_hmm_{n_parcels}parcels_{K}states_{method}.pkl
+  method: inter_img
+  n_timepoints: 1615
+  n_subjects: 43
+  random_seed: 123
+  model_beta: "no"
+  covtype: "full"
+  model_mean: "state"
+  skip_train_if_no_glhmm: false

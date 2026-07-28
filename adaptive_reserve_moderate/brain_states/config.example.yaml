@@ -1,0 +1,22 @@
+# Example pipeline config (anonymized example_data/ only).
+# Do not use outputs for scientific inference.
+# Usage: set BRAIN_STATES_CONFIG=config.example.yaml, or run notebooks/run_example_pipeline.ipynb.
+
+use_example_data: true
+
+paths:
+  data_dir: "example_data"
+  hmm_models_dir: "results/example/hmm_models"
+  results_dir: "results/example"
+
+analysis:
+  n_parcels: 18
+  K: 3
+  method: example
+  n_timepoints: 120
+  n_subjects: 3
+  random_seed: 123
+  model_beta: "no"
+  covtype: "full"
+  model_mean: "state"
+  skip_train_if_no_glhmm: false

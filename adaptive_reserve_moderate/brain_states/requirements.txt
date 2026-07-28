@@ -1,0 +1,7 @@
+numpy>=1.23
+pandas>=1.5
+scipy>=1.9
+PyYAML>=6.0
+nbconvert>=7.0
+jupyter>=1.0
+glhmm>=1.1.0

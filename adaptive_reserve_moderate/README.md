@@ -11,6 +11,7 @@ adaptive-reserve manuscript section.
 | `notebooks/01_analysis.ipynb` | Moderated OLS, simple slopes, Johnson–Neyman intervals |
 | `notebooks/02_plot.ipynb` | Render figure; export PNG, PDF, SVG, EPS |
 | `data/adaptive_reserve_moderation_subject_level.csv` | Subject-level analysis input |
+| `brain_states/` | GLHMM training on full parcel time series (see nested README) |
 | `graph_theory/` | HMM FC → graph metrics pipeline (see nested README) |
 | `figures/` | Saved figure files |
 | `results/` | Analysis tables and other non-figure artifacts |
