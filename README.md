@@ -1,7 +1,7 @@
-# Supplementary Code and Data
+# Salience_Network_Gates_Adaptive_Control_Data_Code_Figure
 
-Reproducibility materials for **seven analyses** from a single neuroimaging and
-behavior study (*N* = 43). Each subfolder is a self-contained mini-package with its own
+Reproducibility materials for analyses from a single neuroimaging and behavior study.
+Each subfolder is a self-contained mini-package with its own
 `README.md`, dependencies, inputs, and figure reproduction notebooks or scripts.
 
 ## Repository map
@@ -25,7 +25,7 @@ Nested neuroimaging pipelines also provide `run_example_pipeline.ipynb`:
 
 ## Quick start
 
-1. **Choose one subfolder** from the table above (you do not need to install all seven
+1. **Choose one subfolder** from the table above (you do not need to install all
  environments to reproduce a single figure).
 2. Read that subfolder’s `README.md` for dependencies.
 3. Open and run **`notebooks/run_example_pipeline.ipynb`** (or the nested path above).

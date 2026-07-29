@@ -7,7 +7,7 @@ Reproduces the gradual SN lesion moderation analysis and composite figure.
 | Path | Description |
 |------|-------------|
 | `notebooks/gradual_lesion_figure.ipynb` | Merge inputs, fit moderation models, render figure |
-| `data/` | analysis-ready CSV files (anonymous subject IDs `sub-001`–`sub-043`) |
+| `data/` | analysis-ready CSV files (anonymous subject IDs, e.g. `sub-001`) |
 | `results/` | Model summaries written by the notebook |
 | `figures/` | Exported figure (`gradual_lesion_moderation_figure`) |
 

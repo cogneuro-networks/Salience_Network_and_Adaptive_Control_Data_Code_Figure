@@ -40,7 +40,7 @@ Supplement tables export to `../results/split_half/`.
 
 ### `analysis_input.csv` (required)
 
-Subject-level table (*N* = 43). Must include at least:
+Subject-level table. Must include at least:
 
 | Column | Description |
 |--------|-------------|

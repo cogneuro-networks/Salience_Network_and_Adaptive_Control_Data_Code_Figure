@@ -6,7 +6,7 @@ Subject-level table merged from gradient metrics, graph metrics, and RT-derived 
 
 | Column | Description |
 |--------|-------------|
-| `subject` | Anonymous ID (`sub-001` … `sub-043`) |
+| `subject` | Anonymous ID (e.g. `sub-001`) |
 | `transmodal_distance` | Mean hierarchy span to salience network from transmodal systems |
 | `unimodal_distance` | Mean hierarchy span to salience network from unimodal systems |
 | `net_SalVentAttn_participation_coefficient_auc` | SN participation coefficient (AUC) |

@@ -48,7 +48,7 @@ BayesianNew/
 ```
 
 Subject IDs parsed from first-level filenames are remapped to anonymous BIDS labels
-(`sub-001`–`sub-043`) before group analysis.
+(e.g. `sub-001`) before group analysis.
 
 ## Run order (manual)
 

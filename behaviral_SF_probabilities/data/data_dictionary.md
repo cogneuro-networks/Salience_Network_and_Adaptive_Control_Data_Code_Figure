@@ -6,7 +6,7 @@ Trial-level behavioral data (one row per experimental observation after preproce
 
 | Column | Type | Description |
 |--------|------|-------------|
-| `subject` | character | Anonymous participant ID (`sub-001`–`sub-043`) |
+| `subject` | character | Anonymous participant ID (e.g. `sub-001`) |
 | `trial` | integer | Trial index within session |
 | `transition` | character | Cognitive domain: `flexibility` (task switching) or `stability` (distractor inhibition) |
 | `long_short` | character | Perturbation block length: `Long` (low flux) or `Short` (high flux) |

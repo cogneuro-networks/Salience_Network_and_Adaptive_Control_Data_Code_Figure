@@ -6,7 +6,7 @@ trial-level behavioral data for HDDM fitting.
 
 | Column | Type | Description |
 |--------|------|-------------|
-| `subject` | string | Anonymous participant ID (`sub-001` … `sub-043`) |
+| `subject` | string | Anonymous participant ID (e.g. `sub-001`) |
 | `subj_idx` | int | Integer index used by HDDM (`1` … `N`) |
 | `transition` | category | `flexibility` or `stability` block |
 | `prob` | category | `prob_same` (50/50) or `prob_diff` (80/20 or 20/80) |
