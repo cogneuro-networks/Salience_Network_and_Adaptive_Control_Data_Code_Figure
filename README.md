@@ -1,4 +1,4 @@
-# Salience_Network_Gates_Adaptive_Control_Data_Code_Figure
+# Salience_Network_and_Adaptive_Control_Data_Code_Figure
 
 Reproducibility materials for analyses from a single neuroimaging and behavior study.
 Each subfolder is a self-contained mini-package with its own
