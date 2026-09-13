@@ -39,7 +39,7 @@ FACTORS = {
     "prob": ["prob_diff", "prob_same"],
     "transition": ["flexibility", "stability"],
 }
-FLUX_FACTORS = {
+DENSITY_FACTORS = {
     "prob": ["prob_diff", "prob_same"],
     "transition": ["flexibility", "stability"],
 }
@@ -114,8 +114,8 @@ def _subj_means(post, param, condition_str):
 def _delta_short_minus_long(idata, param):
     post = idata.posterior
     sums = defaultdict(list)
-    for p in FLUX_FACTORS["prob"]:
-        for t in FLUX_FACTORS["transition"]:
+    for p in DENSITY_FACTORS["prob"]:
+        for t in DENSITY_FACTORS["transition"]:
             ds = _subj_means(post, param, _cell_str("Short", p, t))
             dl = _subj_means(post, param, _cell_str("Long", p, t))
             for sid in set(ds) & set(dl):

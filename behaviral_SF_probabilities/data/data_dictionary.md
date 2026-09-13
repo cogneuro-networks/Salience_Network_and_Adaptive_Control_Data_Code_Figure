@@ -9,7 +9,7 @@ Trial-level behavioral data (one row per experimental observation after preproce
 | `subject` | character | Anonymous participant ID (e.g. `sub-001`) |
 | `trial` | integer | Trial index within session |
 | `transition` | character | Cognitive domain: `flexibility` (task switching) or `stability` (distractor inhibition) |
-| `long_short` | character | Perturbation block length: `Long` (low flux) or `Short` (high flux) |
+| `long_short` | character | Perturbation block length: `Long` (low density) or `Short` (high density) |
 | `prob` | character | Predictability: `prob_diff` (high predictability) or `prob_same` (low predictability) |
 | `acc` | integer | Accuracy on switch task target (0/1) |
 | `rt` | numeric | Reaction time on switch task target (ms) |
@@ -22,8 +22,8 @@ Trial-level behavioral data (one row per experimental observation after preproce
 |----------|-----------------|
 | `transition = flexibility` | Task Switching |
 | `transition = stability` | Distractor Inhibition |
-| `long_short = Long` | Low Flux |
-| `long_short = Short` | High Flux |
+| `long_short = Long` | Low Density |
+| `long_short = Short` | High Density |
 | `prob = prob_diff` | High Predictability |
 | `prob = prob_same` | Low Predictability |
 

@@ -51,7 +51,7 @@ Rscript notebooks/behavioral_flexibility_stability_analysis.R
 
 1. **Accuracy:** 3-way repeated-measures ANOVA (`transition × long_short × prob`) via `afex::aov_ez`.
 2. **RT transition cost:** difference score `rt_diff` with the rules in `data/data_dictionary.md`; same ANOVA structure.
-3. **Figure:** Panel A raincloud + half-density; Panel B accuracy by flux; Panels C/D RT spaghetti with 95% ribbons. 
+3. **Figure:** Panel A raincloud + half-density; Panel B accuracy by density; Panels C/D RT spaghetti with 95% ribbons. 
 
 Contrasts for all within-subject factors: sum-to-zero (`contr.sum(2)`).
 

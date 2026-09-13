@@ -87,7 +87,9 @@ def flip_errors(data: pd.DataFrame) -> pd.DataFrame:
 
 
 def load_hddm_data() -> pd.DataFrame:
+    min_rt_ms = 150
     trials = pd.read_csv(DATA_DIR / "trials_hddm_ready.tsv", sep="\t")
+    trials = trials.loc[trials["rt_ms"] > min_rt_ms].copy()
     hddm_data = trials.copy()
     hddm_data["response"] = hddm_data["acc"].astype(int)
     hddm_data["rt"] = hddm_data["rt_ms"] / 1000.0

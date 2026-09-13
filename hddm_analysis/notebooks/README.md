@@ -28,11 +28,11 @@ HDDM (`hddm.generate.gen_rts`).
 
 ## `02_model_comparison.ipynb`
 
-Model comparison: DIC / RT-RMSE ranking, group-level R-hat, and automated winner selection.
+Model comparison: DIC / LOO / WAIC ranking, group-level R-hat, and automated winner selection.
 
 **Inputs:**
 
-- `../models/transition_prob_duration_10000samples/*_dic_rmse_percentiles.csv`
+- `../models/transition_prob_duration_10000samples/*_dic_loo_waic.csv`
 - `../models/transition_prob_duration_10000samples/rhat_cache.csv` (group-level max R-hat per model)
 - Optional local `*_combined.nc` files
 
@@ -53,8 +53,8 @@ Model comparison: DIC / RT-RMSE ranking, group-level R-hat, and automated winner
 
 **Selection rules (matches manuscript Methods):**
 
-1. Rank all candidates by DIC and RT-RMSE (lower is better).
-2. Compute `combined_rank = 0.5 × rank_dic + 0.5 × rank_rmse`.
+1. Rank all candidates by DIC, LOO, and WAIC (deviance scale; lower is better).
+2. Compute `combined_rank = (rank_dic + rank_loo + rank_waic) / 3`.
 3. Exclude models with group-level max R-hat > 1.01 (subject-level `*_subj*` rows are ignored).
 4. Select the converged model with the smallest `combined_rank`; tie-break on lower DIC.
 

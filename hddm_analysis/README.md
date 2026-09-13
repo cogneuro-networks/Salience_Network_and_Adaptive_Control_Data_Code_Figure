@@ -47,7 +47,7 @@ See [`notebooks/README.md`](notebooks/README.md) for step-by-step options.
 | Notebook | Purpose | Typical runtime |
 |----------|---------|-----------------|
 | `01_model_estimation` | Fit one HDDM candidate (default `hddm_va_vat`) + export CSV / local `.nc` | hours / model |
-| `02_model_comparison` | DIC, RMSE, R-hat, rank models | minutes |
+| `02_model_comparison` | DIC, LOO, WAIC, R-hat, rank models | minutes |
 | `03_parameter_recovery` | Simulate + refit recovery study (`FIGURES_ONLY=True` by default) | minutes / days |
 | `04_condition_effect_analysis` | Condition effect decomposition, Δv–Δa correlation summary | minutes |
 | `05_figures` | Manuscript Figure 1–4 + combined panel | minutes |

@@ -107,7 +107,7 @@ label_design_factors_safe <- function(d) {
       Perturbation = factor(
         long_short,
         levels = c("Long", "Short"),
-        labels = c("Low Flux", "High Flux")
+        labels = c("Low Density", "High Density")
       )
     )
   }
@@ -134,8 +134,8 @@ pal_domain_lines <- c(
   "Task\nSwitching" = col_task_switch,
   "Distractor\nInhibition" = col_dist_inhib
 )
-col_flux_hi <- "#9B8AA6" ## muted purple — high flux (Panel B, left half)
-col_flux_lo <- "#85A897" ## muted sage — low flux (Panel B, right half)
+col_density_hi <- "#9B8AA6" ## muted purple — high density (Panel B, left half)
+col_density_lo <- "#85A897" ## muted sage — low density (Panel B, right half)
 
 pred_levels_plot <- c("Low Predictability", "High Predictability")
 ## X-axis tick labels (B/C/D only); factor levels in data stay `pred_levels_plot`
@@ -248,10 +248,10 @@ rt_line_CD <- rt_cell_CD %>%
     xn = as.numeric(Predictability)
   )
 
-low_df <- rt_line_CD %>% dplyr::filter(Perturbation == "Low Flux")
-high_df <- rt_line_CD %>% dplyr::filter(Perturbation == "High Flux")
-low_sp <- rt_cell_CD %>% dplyr::filter(Perturbation == "Low Flux")
-high_sp <- rt_cell_CD %>% dplyr::filter(Perturbation == "High Flux")
+low_df <- rt_line_CD %>% dplyr::filter(Perturbation == "Low Density")
+high_df <- rt_line_CD %>% dplyr::filter(Perturbation == "High Density")
+low_sp <- rt_cell_CD %>% dplyr::filter(Perturbation == "Low Density")
+high_sp <- rt_cell_CD %>% dplyr::filter(Perturbation == "High Density")
 
 pred_hi <- pred_levels_plot[[2]]
 cd_x_mid <- 1.5
@@ -369,9 +369,9 @@ rt_panel_A <- rt_panel_A %>%
 
 domain_x_labels <- levels(droplevels(RT_cost_lbl$Domain))
 
-## C/D flux banner text (annotate uses mm); B legend text uses pt
-flux_banner_size_mm <- 2.2 + 3 / ggplot2::.pt
-flux_banner_size_pt <- flux_banner_size_mm * ggplot2::.pt
+## C/D density banner text (annotate uses mm); B legend text uses pt
+density_banner_size_mm <- 2.2 + 3 / ggplot2::.pt
+density_banner_size_pt <- density_banner_size_mm * ggplot2::.pt
 
 ## Panel A: halfeye slab outline — share numeric stroke with boxplot (see geom_boxplot below)
 pa_slab_lw <- 0.38
@@ -432,7 +432,7 @@ pA <- ggplot(rt_panel_A, aes(y = y)) +
     )
   )
 
-## ---- Panel B: two x ticks only; at each Pred., left slab = low flux, right = high flux ----
+## ---- Panel B: two x ticks only; at each Pred., left slab = low density, right = high density ----
 acc_subj_B <- combined_lbl %>%
   drop_na(Perturbation, Predictability, acc) %>%
   group_by(subject, Perturbation, Predictability) %>%
@@ -442,8 +442,8 @@ acc_subj_B <- combined_lbl %>%
     xn = as.numeric(Predictability)
   )
 
-acc_B_lo <- dplyr::filter(acc_subj_B, Perturbation == "Low Flux")
-acc_B_hi <- dplyr::filter(acc_subj_B, Perturbation == "High Flux")
+acc_B_lo <- dplyr::filter(acc_subj_B, Perturbation == "Low Density")
+acc_B_hi <- dplyr::filter(acc_subj_B, Perturbation == "High Density")
 
 acc_B_pair_pred <- acc_subj_B %>%
   tidyr::pivot_wider(
@@ -526,7 +526,7 @@ pB <- ggplot(acc_subj_B, aes(y = y)) +
     lineend = "round"
   ) +
   ggplot2::scale_fill_manual(
-    values = c(`Low Flux` = col_flux_lo, `High Flux` = col_flux_hi),
+    values = c(`Low Density` = col_density_lo, `High Density` = col_density_hi),
     guide = ggplot2::guide_legend(
       title = NULL,
       nrow = 2,
@@ -537,8 +537,8 @@ pB <- ggplot(acc_subj_B, aes(y = y)) +
     )
   ) +
   ggplot2::scale_color_manual(
-    name = "Flux",
-    values = c(`Low Flux` = col_flux_lo, `High Flux` = col_flux_hi),
+    name = "Density",
+    values = c(`Low Density` = col_density_lo, `High Density` = col_density_hi),
     guide = "none"
   ) +
   ggplot2::scale_x_continuous(
@@ -573,7 +573,7 @@ pB_themed <- pB +
     legend.background = element_rect(fill = NA, colour = NA),
     legend.box.background = element_rect(fill = NA, colour = NA),
     legend.key = element_rect(fill = NA, colour = NA),
-    legend.text = element_text(color = alpha("grey28", 0.464), size = flux_banner_size_pt),
+    legend.text = element_text(color = alpha("grey28", 0.464), size = density_banner_size_pt),
     legend.margin = margin(2, 4, 4, 4),
     legend.spacing.y = grid::unit(9.504, "pt"),
     legend.key.spacing.y = grid::unit(14 * 0.6, "pt"),
@@ -589,8 +589,8 @@ pB <- pB_themed +
   )
 
 ## ---- Panels C & D: spaghetti + 95% ribbons + mean lines; direct labels (no legend) ----
-build_panel_cd <- function(sp_df, ln_df, tag_ch, show_y_title, show_y_numbers, flux_banner, lbl_df,
-                           banner_size = flux_banner_size_mm,
+build_panel_cd <- function(sp_df, ln_df, tag_ch, show_y_title, show_y_numbers, density_banner, lbl_df,
+                           banner_size = density_banner_size_mm,
                            label_size = 2 + 3 / ggplot2::.pt) {
   yd_rt <- diff(ylim_rt_acd)
   ridge_df <- cd_marginal_ridge_polygons(sp_df)
@@ -629,7 +629,7 @@ build_panel_cd <- function(sp_df, ln_df, tag_ch, show_y_title, show_y_numbers, f
       "text",
       x = cd_x_mid,
       y = ylim_rt_acd[2] - 0.028 * yd_rt,
-      label = flux_banner,
+      label = density_banner,
       fontface = "bold",
       size = banner_size,
       color = alpha("grey28", 0.78),
@@ -687,11 +687,11 @@ build_panel_cd <- function(sp_df, ln_df, tag_ch, show_y_title, show_y_numbers, f
 }
 
 pC <- build_panel_cd(
-  low_sp, low_df, "c", TRUE, TRUE, "Low Flux", lbl_c,
+  low_sp, low_df, "c", TRUE, TRUE, "Low Density", lbl_c,
   label_size = 2 + 3 / ggplot2::.pt
 )
 pD <- build_panel_cd(
-  high_sp, high_df, NULL, FALSE, FALSE, "High Flux", lbl_d,
+  high_sp, high_df, NULL, FALSE, FALSE, "High Density", lbl_d,
   label_size = 2 + 3 / ggplot2::.pt
 )
 

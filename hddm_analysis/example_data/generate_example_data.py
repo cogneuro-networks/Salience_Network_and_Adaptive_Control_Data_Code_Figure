@@ -47,6 +47,7 @@ A_CELL_MEAN = {
 }
 T_MEAN = 0.28
 MODEL_METRICS = [
+    # (model_name, dic, fit_offset, max_rhat) — fit_offset only used to synthesize demo LOO/WAIC
     ("hddm_vatz_vatz", 2682.686025, 0.077091, 1.49),
     ("hddm_vat_vatz", 2713.079185, 0.079860, 1.07),
     ("hddm_vat_vat", 2728.934163, 0.082387, 1.32),
@@ -157,10 +158,14 @@ def write_example_idata(out_dir: Path, *, seed: int = 42) -> Path:
 
 def write_example_data(out_dir: Path) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
-    for model, dic, rmse, rhat in MODEL_METRICS:
+    for model, dic, fit_offset, rhat in MODEL_METRICS:
+        # Demo LOO/WAIC (deviance scale): preserve relative ordering using DIC + a small offset.
+        # Re-fit notebook 01 to replace these with true ArviZ LOO/WAIC.
+        loo = float(dic) + float(fit_offset) * 50.0
+        waic = float(dic) + float(fit_offset) * 40.0
         pd.DataFrame(
-            {"model_name": [model], "dic": [dic], "rmse_rt": [rmse]}
-        ).to_csv(out_dir / f"{model}_dic_rmse_percentiles.csv", index=False)
+            {"model_name": [model], "dic": [dic], "loo": [loo], "waic": [waic]}
+        ).to_csv(out_dir / f"{model}_dic_loo_waic.csv", index=False)
 
     rhat_rows = []
     for model, _, _, rhat in MODEL_METRICS:
@@ -177,7 +182,7 @@ def write_example_data(out_dir: Path) -> None:
 def sync_models(project_root: Path) -> Path:
     model_dir = project_root / "models" / "transition_prob_duration_10000samples"
     model_dir.mkdir(parents=True, exist_ok=True)
-    for src in ROOT.glob("*_dic_rmse_percentiles.csv"):
+    for src in ROOT.glob("*_dic_loo_waic.csv"):
         shutil.copy2(src, model_dir / src.name)
     shutil.copy2(ROOT / "rhat_cache.csv", model_dir / "rhat_cache.csv")
     nc_src = ROOT / WINNER_NC
